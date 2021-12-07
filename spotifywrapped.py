@@ -1,15 +1,15 @@
 import json
 import datetime
 
-def add_data(a,c,ms):
+def add_data(a,c,ms,s):
     found = False
     for x in range(len(a)):
         if c == a[x][0]:
-            a[x] = (c, a[x][1] + ms)
+            a[x] = (c, a[x][1] + ms, a[x][2] + s)
             found = True
             break
     if not found:
-        append = (c, ms)
+        append = (c, ms, s)
         a.append(append)
 
 f = open("full.json",encoding="utf8") 
@@ -42,7 +42,7 @@ for x in data:
     
 
 for x in s:
-    add_data(a,x[0],x[2])
+    add_data(a,x[0],x[2],x[3])
 
 
 s.sort(key=lambda x:x[2], reverse=True)
@@ -64,9 +64,9 @@ for x in range(5):
     print()
 
 a.sort(key=lambda x:x[1], reverse=True)
-print("Artist | Hours listened to")
-print(":-|:-")
+print("Artist | Hours listened to | Streams")
+print(":-|:-|:-")
 for x in range(30):
-     print(f"{a[x][0]} | {round(a[x][1]/3600000,2)}")
+     print(f"{a[x][0]} | {round(a[x][1]/3600000,2)} | {a[x][2]}")
 
 print(str(finalsum/60000))
