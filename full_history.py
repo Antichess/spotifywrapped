@@ -1,13 +1,17 @@
 import json
 import datetime
+import os
+
+numberOfFiles = 0
+
+directory = os.getcwd()
+for file in os.listdir(directory):
+     filename = os.fsdecode(file)
+     if filename.startswith("endsong_"):
+         numberOfFiles = numberOfFiles + 1
 
 d = {}
-
-#numberOfFiles must be hardcoded, is different for everyone
-
-numberOfFiles = 6
-
-
+print(numberOfFiles)
 
 for fileCount in range(numberOfFiles):
     name = "endsong_" + str(fileCount) + ".json"
@@ -43,6 +47,7 @@ for i in d:
         totalms = totalms + d[i][j]["ms_played"]
         totalstreams = totalstreams + d[i][j]["plays"]
         a.append(app)
+        
 a.sort(key=lambda x:x[2], reverse=True)
 
 for i in d:
@@ -75,4 +80,4 @@ with open("500topsongs.txt", "w") as f:
             pass
     print(f"Total hours played is {round(totalms/3600000,2)}")
     print(f"Total streams is {totalstreams}")
-           
+  
