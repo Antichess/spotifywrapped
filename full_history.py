@@ -112,5 +112,5 @@ with open("topalbums.txt", "w", encoding="utf-8") as f:
      f.write("# | Artist | Album | Hours listened to | Streams\n")
      f.write(":-|:-|:-|:-|:-\n")
      for c,x in enumerate(listalbums):
-          f.write(f'{c+1} | {x[0]} | {x[1]} | {x[2]/3600000,2} | {x[3]}\n')
+          f.write(f'{c+1} | {x[0]} | {x[1]} | {round(x[2]/3600000,2)} | {x[3]}\n')
     
