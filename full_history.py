@@ -11,7 +11,7 @@ for file in os.listdir(directory):
          numberOfFiles = numberOfFiles + 1
 
 d = {}
-print(numberOfFiles)
+print(f"{numberOfFiles} files loaded")
 
 for fileCount in range(numberOfFiles):
     name = "endsong_" + str(fileCount) + ".json"
@@ -32,7 +32,7 @@ for fileCount in range(numberOfFiles):
                         d[c["master_metadata_album_artist_name"]][c["master_metadata_track_name"]] = {}
                         d[c["master_metadata_album_artist_name"]][c["master_metadata_track_name"]]["ms_played"] = int(c["ms_played"])
                         d[c["master_metadata_album_artist_name"]][c["master_metadata_track_name"]]["plays"] = 1
-    print(fileCount)
+    print(f"endsong_{fileCount}.json")
 
 #print(json.dumps(d, sort_keys=False, indent=4))
 
