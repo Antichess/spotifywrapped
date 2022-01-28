@@ -79,5 +79,5 @@ with open("500topsongs.txt", "w") as f:
         except:
             pass
     print(f"Total hours played is {round(totalms/3600000,2)}")
-    print(f"Total streams is {totalstreams}")
-  
+    print(f"Total days played is {round(totalms/3600000/24,2)}")
+    print(f"Total streams over 30 seconds is {totalstreams}")
